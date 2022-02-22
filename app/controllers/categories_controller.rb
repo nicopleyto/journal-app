@@ -8,11 +8,13 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
+    @categories = Category.all
   end
 
   # GET /categories/new
   def new
     @category = Category.new
+    @categories = Category.all
   end
 
   # GET /categories/1/edit

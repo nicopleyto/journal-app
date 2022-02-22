@@ -1,0 +1,12 @@
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Categories
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <% @categories.each do |category| %>
+        <li><%= link_to category.title, category, :class => "dropdown-item"%></li>
+        <% end %>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Add New Category</a></li>
+    </ul>
+</li>
