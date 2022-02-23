@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :access_all_user_categories
 
   # GET /categories
   def index
@@ -54,5 +55,10 @@ class CategoriesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def category_params
       params.require(:category).permit(:title, :description)
+    end
+
+    # Allows the dropdown navbar to continue functioning when moving from page to page
+    def access_all_user_categories
+      @categories = Category.all
     end
 end
