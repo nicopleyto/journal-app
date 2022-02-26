@@ -60,6 +60,6 @@ class EntriesController < ApplicationController
     end
 
     def set_category
-      @category = Category.find(params[:category_id])
+      @category = current_user.categories.find(params[:category_id])
     end
 end
