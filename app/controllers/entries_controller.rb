@@ -14,7 +14,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @post = @category.entries.build
+    @entry = @category.entries.build
   end
 
   # GET /entries/1/edit
@@ -27,7 +27,7 @@ class EntriesController < ApplicationController
     @entry = @category.entries.build(entry_params)
 
     if @entry.save
-      redirect_to category_entry_path(@category), notice: 'Entry was successfully created.'
+      redirect_to category_entries_path(@category), notice: 'Entry was successfully created.'
     else
       render :new
     end
