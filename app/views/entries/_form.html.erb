@@ -4,7 +4,7 @@
       <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
 
       <ul>
-        <% @entry.errors.each do |error| %>
+        <% entry.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

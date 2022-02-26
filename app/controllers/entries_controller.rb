@@ -14,7 +14,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @post = @shark.posts.build
+    @post = @category.entries.build
   end
 
   # GET /entries/1/edit
