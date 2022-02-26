@@ -15,5 +15,5 @@
   <%= @entry.date %>
 </p>
 
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+<%= link_to 'Edit', edit_category_entry_path(@category, @entry) %> |
+<%= link_to 'Back', category_entries_path(@category) %>

@@ -18,9 +18,9 @@
         <td><%= entry.title %></td>
         <td><%= entry.body %></td>
         <td><%= entry.date %></td>
-        <td><%= link_to 'Show', entry %></td>
-        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', category_entry_path(@category, entry) %></td>
+        <td><%= link_to 'Edit', edit_category_entry_path(@category, entry) %></td>
+        <td><%= link_to 'Destroy', [@category, entry], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Entry', new_entry_path %>
+<%= link_to 'New Entry', new_category_entry_path(@category) %>

@@ -1,9 +1,11 @@
 class EntriesController < ApplicationController
+  before_action :set_category
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   # GET /entries
   def index
-    @entries = Entry.all
+    # Firm#clients (similar to Client.where(firm_id: id))
+    @entries = @category.entries
   end
 
   # GET /entries/1
@@ -12,7 +14,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @entry = Entry.new
+    @post = @shark.posts.build
   end
 
   # GET /entries/1/edit
@@ -21,10 +23,11 @@ class EntriesController < ApplicationController
 
   # POST /entries
   def create
-    @entry = Entry.new(entry_params)
+    #Firm#clients.build
+    @entry = @category.entries.build(entry_params)
 
     if @entry.save
-      redirect_to @entry, notice: 'Entry was successfully created.'
+      redirect_to category_entry_path(@category), notice: 'Entry was successfully created.'
     else
       render :new
     end
@@ -33,7 +36,7 @@ class EntriesController < ApplicationController
   # PATCH/PUT /entries/1
   def update
     if @entry.update(entry_params)
-      redirect_to @entry, notice: 'Entry was successfully updated.'
+      redirect_to category_entry_path(@category), notice: 'Entry was successfully updated.'
     else
       render :edit
     end
@@ -42,17 +45,21 @@ class EntriesController < ApplicationController
   # DELETE /entries/1
   def destroy
     @entry.destroy
-    redirect_to entries_url, notice: 'Entry was successfully destroyed.'
+    redirect_to category_entries_path(@category), notice: 'Entry was successfully destroyed.'
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
-      @entry = Entry.find(params[:id])
+      @entry = @category.entries.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def entry_params
       params.require(:entry).permit(:title, :body, :date)
+    end
+
+    def set_category
+      @category = Category.find(params[:category_id])
     end
 end

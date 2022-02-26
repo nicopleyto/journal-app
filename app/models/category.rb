@@ -1,3 +1,5 @@
 class Category < ApplicationRecord
-    has_many :entries
+    belongs_to :user
+    has_many :entries, dependent: :destroy
+    validates :title, presence: true
 end

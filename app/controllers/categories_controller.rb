@@ -1,10 +1,10 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :access_all_user_categories
 
   # GET /categories
   def index
-    @categories = Category.all
+    # Firm#clients (similar to Client.where(firm_id: id))
+    @categories = current_user.categories
   end
 
   # GET /categories/1
@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @category = Category.new
+    @category = current_user.categories.build
   end
 
   # GET /categories/1/edit
@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
 
   # POST /categories
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.build(category_params)
 
     if @category.save
       redirect_to @category, notice: 'Category was successfully created.'
@@ -48,17 +48,14 @@ class CategoriesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    # Limit access of user to his own categories
     def set_category
-      @category = Category.find(params[:id])
+      @category = current_user.categories.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def category_params
       params.require(:category).permit(:title, :description)
-    end
-
-    # Allows the dropdown navbar to continue functioning when moving from page to page
-    def access_all_user_categories
-      @categories = Category.all
     end
 end
