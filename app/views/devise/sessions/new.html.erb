@@ -1,26 +1,72 @@
-<h2>Log in</h2>
+ <div class = "container">
+  <div class = "row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card-body p-4 p-sm-5">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+          <h5 class="card-title text-center mb-4 fw-light fs-4">Sign In</h5>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+              <div class="field form-group mb-3">
+                <%= f.label :email, :class => "form-label" %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control", :placeholder => "name@example.com" %>
+              </div>
+
+              <div class="field form-group mb-3">
+                <%= f.label :password, :class => "form-label" %><br />
+                <%= f.password_field :password, autocomplete: "current-password", :class => "form-control", :placeholder => "password" %>
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+                <div class="field form-check mb-3">
+                  <%= f.check_box :remember_me, :class => "form-check-input" %>
+                  <%= f.label :remember_me, :class => "form-check-label" %>
+                </div>
+              <% end %>
+
+              <div class="actions d-grid mb-3">
+                <%= f.submit "Sign in", :class => "btn btn-primary btn-login text-uppercase fw-bold"  %>
+              </div>
+
+            <% end %>
+
+          <span><%= render "devise/shared/links" %></span>
+
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+  <%# <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
+            <form>
+
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                <label class="form-check-label" for="rememberPasswordCheck">
+                  Remember password
+                </label>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
+                  in</button>
+              </div>
+            </form>
+          </div>
+        </div> %>
