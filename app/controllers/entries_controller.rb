@@ -6,6 +6,7 @@ class EntriesController < ApplicationController
   def index
     # Firm#clients (similar to Client.where(firm_id: id))
     @entries = @category.entries
+    # @entries = current_user.entries
   end
 
   # GET /entries/1
