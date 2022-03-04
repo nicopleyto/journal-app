@@ -19,7 +19,15 @@
     </head>
     <body>
     <%= render 'layouts/navbar'%>
-    <p class="notice"><%= notice %></p>
+
+    <% if notice %>
+    <div class="container">
+      <div class="alert alert-success alert-dismissible fade show mx-auto col-10 text-center mb-1 mt-4" role="alert">
+        <%= notice %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+    <% end %>
 
     <% if alert %>
     <div class="container">

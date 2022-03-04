@@ -1,7 +1,7 @@
 <div class = "container">
   <div class = "row">
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card border-0 shadow rounded-3 mt-5">
+      <div class="card rounded-3 mt-5">
         <div class="card-body p-4 p-sm-5">
 
           <h5 class="card-title text-center mb-3 fw-light fs-4">Sign In</h5>
@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <div class="card border-0 shadow rounded-3 my-3">
+      <div class="card rounded-3 my-3 mb-5">
         <div class="card-body p-2 p-sm-3">
           <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
             <div class="text-center">Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name) %><br /></div>

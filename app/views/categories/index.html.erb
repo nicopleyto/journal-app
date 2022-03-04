@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <%#= link_to 'Entries', category_entries_path(category) %>
 
 <div class = "container">
@@ -19,11 +17,11 @@
 
         <%# if there is an entry in category, it will be displayed at the bottom of the category card %>
         <% if category.entries.count > 0 %>
-          <div class="card-footer text-primary">Entries:</div>
+          <div class="card-footer text-primary"> Entries:</div>
             <ul class="list-group list-group-flush">
 
               <% category.entries.each do |entry| %>
-                <li class="list-group-item "><%= entry.title%></li>
+                <li class="list-group-item "><%=link_to entry.title, category_entry_path(entry.category.id, entry.id)%></li>
               <%end%>
 
             </ul>

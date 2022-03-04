@@ -3,7 +3,7 @@
 <div class = "container">
   <div class = "row">
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card border-0 shadow rounded-3 mt-5">
+      <div class="card rounded-3 mt-5">
         <div class="card-body p-4 p-sm-5">
 
           <h5 class="card-title text-center mb-3 fw-light fs-4">Edit <%= resource_name.to_s.humanize %></h5>
@@ -17,17 +17,17 @@
 
               <div class="field form-group mb-3">
                 <%= f.label :password, :class => "form-label", :value => "New Password (#{@minimum_password_length} characters minimum)" %> <br />
-                <%= f.password_field :password, autocomplete: "new-password", :class => "form-control" %>
+                <%= f.password_field :password, autocomplete: "new-password", :class => "form-control", :placeholder => "******" %>
               </div>
 
               <div class="field form-group mb-3">
                 <%= f.label :password_confirmation, :class => "form-label" %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control" %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control", :placeholder => "******" %>
               </div>
 
               <div class="field form-group mb-3">
                 <%= f.label :current_password, :class => "form-label" %> <br />
-                <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control" %>
+                <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control", :placeholder => "******" %>
               </div>
               
               <div class="actions d-grid mb-3 mt-4">
@@ -39,7 +39,7 @@
         </div>
       </div>
 
-      <div class="card border-0 shadow rounded-3 my-3">
+      <div class="card rounded-3 my-3">
         <div class="card-body p-2 p-sm-3">
 
           <h5 class="card-title text-center mt-3 mb-3 fw-light fs-4">Delete Account</h5>

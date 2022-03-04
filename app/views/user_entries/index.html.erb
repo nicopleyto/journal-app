@@ -1,13 +1,12 @@
 <div class = "container">
   <div class = "row">
-    <h1 class = "mt-2">Entries</h1>
-    <p id="notice"><%= notice %></p>
+    <h1 class = "my-4">Entries</h1>
 
     <section class = "col-7"> 
 
 
       <% @entries.each do |entry| %>
-      <div class="card">
+      <div class="card mb-5">
         <div class="card-body">
           <span class="badge rounded-pill bg-primary"><%= entry.category.title %></span>
           <h4 class="card-title mt-2"><%= link_to entry.title, category_entry_path(entry.category.id, entry.id), :class => "remove-link-underline"%></h4>

@@ -1,19 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class = "container">
+  <section class = "col-7 mx-auto">
+      <div class="card my-5">
+        <div class="card-body">
+          <span class="badge rounded-pill bg-primary"><%= @entry.category.title %></span>
+          <h4 class="card-title mt-2"><%= @entry.title %></h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= @entry.date.strftime('%b %e, %Y') %></h6>
+          <p class="card-text"><%= @entry.body %></p>
+          <%= link_to 'Edit', edit_category_entry_path(@category, @entry), :class => "card-link" %>
+          <%= link_to 'Delete', category_entry_path(@category, @entry), method: :delete, data: { confirm: 'Are you sure?' }, :class => "card-link" %>
+        </div>
+      </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @entry.title %>
-</p>
+    <%= link_to "← #{@category.title}" , category_entries_path(@category), :class => "btn btn-outline-dark btn-sm mb-4" %>
+    <%#= link_to '← Back to Categories', categories_path, :class => "btn btn-outline-dark btn-sm mb-4" %>
 
-<p>
-  <strong>Body:</strong>
-  <%= @entry.body %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @entry.date %>
-</p>
-
-<%= link_to 'Edit', edit_category_entry_path(@category, @entry) %> |
-<%= link_to 'Back', category_entries_path(@category) %>
+  </section>
+</div>

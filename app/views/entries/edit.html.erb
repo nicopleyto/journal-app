@@ -1,6 +1,8 @@
-<h1>Editing Entry</h1>
-
 <%= render 'form', entry: @entry %>
 
-<%= link_to 'Show', [@category, @entry] %> |
-<%= link_to 'Back', category_entries_path(@category) %>
+<div class ="container mt-3">
+    <section class = "col-8 mx-auto"> 
+        <%= link_to 'Show', [@category, @entry], :class => "btn btn-outline-dark btn-sm mb-4" %>
+        <%= link_to "← #{@category.title}", category_entries_path(@category), :class => "btn btn-outline-dark btn-sm mb-4" %>
+    </section>
+</div>

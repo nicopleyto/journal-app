@@ -1,23 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class = "container">
+  <section class = "col-7 mx-auto">
 
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
+    <section class ="my-4">
+      <h1><%= @category.title %></h1>
+      <p><%= @category.description %></p>
+    </section>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
+    <% @category.entries.each do |entry| %>
+      <div class="card my-5">
+        <div class="card-body">
+          <span class="badge rounded-pill bg-primary"><%= entry.category.title %></span>
+          <h4 class="card-title mt-2"><%= link_to entry.title, category_entry_path(entry.category.id, entry.id), :class => "remove-link-underline"%></h4>
+          <h6 class="card-subtitle mb-2 text-muted"><%= entry.date.strftime('%b %e, %Y') %></h6>
+          <p class="card-text"><%= entry.body %></p>
+          <%= link_to 'Edit', edit_category_entry_path(entry.category.id, entry.id), :class => "card-link" %>
+          <%= link_to 'Delete', category_entry_path(entry.category.id, entry.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "card-link" %>
+        </div>
+      </div>
+    <% end %>
 
-<h2>Entries</h2>
-<% for entry in @category.entries %>
-    <ul>
-      <li><%= entry.title %></li>
-      <li><%= entry.body %></li>
-  </ul>
-<% end %>
+    <div class="card my-5">
+      <div class="card-body list-group-item-action text-center">
+        <%= link_to '+ New Entry', new_category_entry_path(@category), :class => "remove-link-underline"%>
+      </div>
+    </div>
 
-<%= link_to 'Edit', edit_category_path(@category) %>
-<%= link_to 'Add Entry', category_entries_path(@category) %>
-<%= link_to 'Back', categories_path %>
+
+    <%= link_to '← Categories', categories_path, :class => "btn btn-outline-dark btn-sm mb-4" %>
+
+  </section>
+</div>

@@ -1,27 +1,41 @@
 <%= form_with(model: category) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-        <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <% if category.errors.any? %>
+
+    <% category.errors.each do |error| %>
+
+      <div class="container">
+        <div class="alert alert-danger alert-dismissible fade show mx-auto col-10 text-center mb-1 mt-4" role="alert">
+          <%= error.full_message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    
+    <% end %>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class ="container">
+    <section class = "col-8 mx-auto">
+      <div class = "card rounded-3 mt-5">
+        <div class="card-body p-4 p-sm-5">
+
+          <div class="field form-group mb-3">
+            <%= form.label :title %>
+            <%= form.text_field :title, :class => "form-control" %>
+          </div>
+
+          <div class="field form-group mb-3">
+            <%= form.label :description %>
+            <%= form.text_area :description, :class => "form-control" %>
+          </div>
+
+          <div class="actions d-grid mb-3 mt-4">
+            <%= form.submit :class => "btn btn-primary btn-login text-uppercase fw-bold"%>
+          </div>
+
+        </div>
+      </div>
+    </section>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
