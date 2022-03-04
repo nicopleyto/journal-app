@@ -22,6 +22,9 @@ gem 'turbolinks', '~> 5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
+#install bootstrap
+gem 'bootstrap', '~> 5.1.3'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
