@@ -11,9 +11,12 @@
           <span class="badge rounded-pill bg-primary"><%= entry.category.title %></span>
           <h4 class="card-title mt-2"><%= link_to entry.title, category_entry_path(entry.category.id, entry.id), :class => "remove-link-underline"%></h4>
           <h6 class="card-subtitle mb-2 text-muted"><%= entry.date.strftime('%b %e, %Y') %></h6>
-          <p class="card-text"><%= entry.body %></p>
-          <%= link_to 'Edit', edit_category_entry_path(entry.category.id, entry.id), :class => "card-link" %>
-          <%= link_to 'Delete', category_entry_path(entry.category.id, entry.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "card-link" %>
+          <p class="card-text"><small><%= entry.body %></small></p>
+        </div>
+        <div class = "list-group d-flex flex-row justify-content-between">
+          <div class = "list-group-item-action d-flex justify-content-center py-2"><%= link_to '', category_entry_path(entry.category.id, entry.id), :class => "bi bi-arrows-fullscreen" %></div>
+          <div class = "list-group-item-action d-flex justify-content-center py-2"><%= link_to '', edit_category_entry_path(entry.category.id, entry.id), :class => "bi bi-pencil-square" %></div>
+          <div class = "list-group-item-action d-flex justify-content-center py-2"><%= link_to '', category_entry_path(entry.category.id, entry.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "bi bi-trash-fill" %></div>
         </div>
       </div>
       <% end %>
