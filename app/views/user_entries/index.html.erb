@@ -31,6 +31,12 @@
 
       <%#= link_to 'New Entry', new_category_entry_path(@category) %>
     <section class = "col-5">
+
+      <div class="card w-100 mb-3">
+        <%= link_to '+', new_entry_path, :class => "remove-link-underline display-4 text-secondary card-body list-group-item-action d-flex align-items-center justify-content-center"%>
+      </div>
+
+
       <ul class="list-group">
 
         <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">

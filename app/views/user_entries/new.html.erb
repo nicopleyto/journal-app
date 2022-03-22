@@ -1,0 +1,53 @@
+<%= form_for @entry do |form| %>
+
+  <% if @entry.errors.any? %>
+
+    <% @entry.errors.each do |error| %>
+
+    <div class="container">
+      <div class="alert alert-danger alert-dismissible fade show mx-auto col-10 text-center mb-1 mt-4" role="alert">
+        <%= error.full_message %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+
+    <% end %>
+
+  <% end %>
+
+  <div class ="container">
+    <section class = "col-8 mx-auto">
+      <div class = "card rounded-3 mt-5">
+        <div class="card-body p-4 p-sm-5">
+
+            <div class="field form-group mb-3">
+              <%= form.label :title %>
+              <%= form.text_field :title, :class => "form-control" %>
+            </div>
+
+            <div class="field form-group mb-3">
+              <%= form.label :body %>
+              <%= form.text_area :body, :class => "form-control", :rows => "8" %>
+            </div>
+
+            <div class="field form-group mb-3">
+              <%= form.label :date %>
+              <%= form.date_select :date, {}, { class: 'form-select' }%>
+            </div>
+
+            <div class="field form-group mb-3">
+              <%= form.label :category %>
+              <%= form.select :category_id, current_user.categories.map{|c|[c.title, c.id]}, {}, {class: 'form-select' } %>
+            </div>
+
+            <div class="actions d-grid mb-3 mt-4">
+              <%= form.submit :class => "btn btn-primary btn-login text-uppercase fw-bold" %>
+            </div>
+
+        </div>
+      </div>
+
+      <%= link_to "← Entries", entries_path, :class => "btn btn-outline-dark btn-sm my-4" %>
+    </section>
+  </div>
+<% end %>

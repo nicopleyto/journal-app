@@ -13,10 +13,28 @@ class UserEntriesController < ApplicationController
     else
       @entries = current_user.entries
     end
-
-    # @categories = current_user.categories
-
-    # @today = Date.current
-
   end
+
+  def new
+    @entry = current_user.entries.build
+  end
+
+  def create
+    #Firm#clients.build
+    @entry = current_user.entries.build(entry_params)
+
+    if @entry.save
+      redirect_to entries_path, notice: 'Entry was successfully created.'
+    else
+      render :new
+    end
+  end
+
+  private
+
+    # Only allow a list of trusted parameters through.
+    def entry_params
+      params.require(:entry).permit(:title, :body, :date, :category_id)
+    end
+
 end
