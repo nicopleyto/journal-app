@@ -1,4 +1,5 @@
 class UserEntriesController < ApplicationController
+  before_action :check_categories, only: [:new, :create]
   def index
     # cate = params[:cate]
     #   if !cate.nil?
@@ -33,8 +34,16 @@ class UserEntriesController < ApplicationController
   private
 
     # Only allow a list of trusted parameters through.
-    def entry_params
-      params.require(:entry).permit(:title, :body, :date, :category_id)
+  def entry_params
+    params.require(:entry).permit(:title, :body, :date, :category_id)
+  end
+
+  def check_categories
+    if current_user.categories.any?
+      return
+    else
+      redirect_to new_category_path, notice: "Please create a category first."
     end
+  end
 
 end
