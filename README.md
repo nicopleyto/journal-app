@@ -5,8 +5,8 @@ A journal app which allows the user to sign in and create entries organized unde
 
 ## Screenshots
 
-![preview1](./img1/png)
-![preview2](./img2/png)
+![preview1](./img1.png)
+![preview2](./img2.png)
 
 
 ## User Stories
