@@ -22,18 +22,6 @@
             <%= link_to '', category, method: :delete, data: { confirm: 'Are you sure?' }, :class => "bi bi-trash-fill list-group-item-action d-flex justify-content-center py-2 align-items-center remove-link-underline" %>
           </div>
 
-          <%# if there is an entry in category, it will be displayed at the bottom of the category card %>
-          <%# if category.entries.count > 0 %>
-            <%#div class="card-footer text-primary"> Entries: <%= category.entries.count %><%#/div>
-              <%#ul class="list-group list-group-flush">
-
-                <%# category.entries.each do |entry| %>
-                  <%#li class="list-group-item "><%#=link_to entry.title, category_entry_path(entry.category.id, entry.id)%><%#/li>
-                <%#end%>
-
-              <%#/ul>
-          <%#end%>
-
         </div>
 
       </div>

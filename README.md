@@ -2,14 +2,6 @@
 # Records on Rails
 A journal app which allows the user to sign in and create entries organized under categories
 
-
-## Screenshots
-
-![preview1](./img1.png)
-
-![preview2](./img2.png)
-
-
 ## User Stories
 
 - User Story 1: As a User, I want to create a category that can be used to organize my tasks.
